@@ -56,9 +56,28 @@ public class MainActivity extends AppCompatActivity {
         textViewCurrentSpeed = findViewById(R.id.textCurrent_speed);
         textViewMaxSpeed = findViewById(R.id.textMax_speed);
         textViewCurrentDistance = findViewById(R.id.textDistance);
-     // textViewNoOfSatellites = findViewById(R.id.textNoOfSatellites);
+        // textViewNoOfSatellites = findViewById(R.id.textNoOfSatellites);
         buttonResetDistance = findViewById(R.id.reset_distance_button);
         buttonResetSpeed = findViewById(R.id.reset_max_speed_button);
+
+        // Set click listeners for reset buttons
+        buttonResetDistance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Handle distance reset button click
+                resetDistance();
+            }
+        });
+
+        buttonResetSpeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Handle speed reset button click
+                resetSpeed();
+            }
+        });
+
+
 
         if (!dataInitiated) {
             positions = new Double[data_points][2];
@@ -77,7 +96,11 @@ public class MainActivity extends AppCompatActivity {
         } catch (SecurityException e) {
             Log.e(String.valueOf(LOG), getString(R.string.accessRightsNOTgranted));  // Log.e(LOG, getString(R.string.accessRightsNOTgranted));
         }
+
+
     }
+
+
 
     public void onProviderDisabled(String provider) {
         Log.i(getResources().getString(R.string.app_name), "Provider Disabled: " + provider);
@@ -144,4 +167,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     // other methods
+
+    // Method to reset distance
+    private void resetDistance() {
+        distance = 0;
+        if (textViewCurrentDistance != null) {
+            textViewCurrentDistance.setText(getString(R.string.current_distance) + ": 0 " + getString(R.string.m));
+        }
+    }
+
+    // Method to reset speed
+    private void resetSpeed() {
+        maxSpeed = -1.0F;
+        if (textViewMaxSpeed != null) {
+            textViewMaxSpeed.setText(getString(R.string.max_speed) + ": - " + getString(R.string.kmh));
+        }
+    }
 }
