@@ -12,8 +12,13 @@ public class MyLocationListener implements LocationListener {
         this.mainActivity = mainActivity;
     }
 
+    private static final int UPDATE_DISTANCE_THRESHOLD = 5;
+
+    //old method
+    /*
     @Override
     public void onLocationChanged(Location loc) {
+
         if (loc != null) {
             Double d1;
             Long t1;
@@ -49,10 +54,69 @@ public class MyLocationListener implements LocationListener {
 
             mainActivity.setAndDisplayCurrentSpeed(speed);
             mainActivity.addAndDisplayCurrentDistance(d1);
+
+
+        } else {
+            mainActivity.setAndDisplayCurrentSpeed(-1.0);
+        }
+
+    }
+    */
+
+    //new method
+    //additional tests needed
+    @Override
+    public void onLocationChanged(Location loc) {
+        Double distance = 0.0;
+
+        if (loc != null) {
+            Double d1;
+            Long t1;
+            Double speed = 0.0;
+            d1 = 0.0;
+            t1 = 0L;
+            mainActivity.positions[mainActivity.counter][0] = loc.getLatitude();
+            mainActivity.positions[mainActivity.counter][1] = loc.getLongitude();
+            mainActivity.times[mainActivity.counter] = loc.getTime();
+
+            try {
+                // get the distance and time between the current position,
+                // and the previous position.
+                // using (counter - 1) % data_points doesn't wrap properly
+                d1 = distance(
+                        mainActivity.positions[mainActivity.counter][0],
+                        mainActivity.positions[mainActivity.counter][1],
+                        mainActivity.positions[(mainActivity.counter + (mainActivity.data_points - 1)) % mainActivity.data_points][0],
+                        mainActivity.positions[(mainActivity.counter + (mainActivity.data_points - 1)) % mainActivity.data_points][1]
+                );
+                t1 = mainActivity.times[mainActivity.counter] - mainActivity.times[(mainActivity.counter + (mainActivity.data_points - 1)) % mainActivity.data_points];
+            } catch (NullPointerException e) {
+                // all good, just not enough data yet.
+            }
+
+            if (loc.hasSpeed()) {
+                speed = loc.getSpeed() * 1.0;
+            } else {
+                speed = d1 / t1; // m/s
+            }
+
+            mainActivity.counter = (mainActivity.counter + 1) % mainActivity.data_points;
+            // convert from m/s to km/h
+            speed = speed * 3.6d;
+
+            mainActivity.setAndDisplayCurrentSpeed(speed);
+
+            // Update distance only if it exceeds the threshold
+            if (d1 >= UPDATE_DISTANCE_THRESHOLD) {
+                mainActivity.addAndDisplayCurrentDistance(d1);
+                // Reset distance after updating
+                distance = 0.0;
+            }
         } else {
             mainActivity.setAndDisplayCurrentSpeed(-1.0);
         }
     }
+
 
     @Override
     public void onProviderDisabled(String provider) {

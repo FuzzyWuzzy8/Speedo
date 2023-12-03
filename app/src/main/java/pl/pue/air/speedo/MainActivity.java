@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonResetSpeed;
     private int speed = -1;
     private float maxSpeed = -1.0F;
-    private int distance = 0;
+    private double distance = 0.0;
     private int satellites = 0;
 
     @Override
@@ -148,12 +148,26 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //old distance method
+    /*
     public void addAndDisplayCurrentDistance(Double distance) {
         if (distance != null) {
             this.distance = this.distance + distance.intValue();
             if (textViewCurrentDistance != null) {
                 textViewCurrentDistance.setText(
                         getString(R.string.current_distance) +          // findViewById(R.id.textDistance)
+                                ": " + this.distance + ' ' + getString(R.string.m));
+            }
+        }
+    }
+    */
+
+    void addAndDisplayCurrentDistance(Double distance) {
+        if (distance != null) {
+            this.distance += distance; //Add exact distance value
+            if (textViewCurrentDistance != null) {
+                textViewCurrentDistance.setText(
+                        getString(R.string.current_distance) +
                                 ": " + this.distance + ' ' + getString(R.string.m));
             }
         }
