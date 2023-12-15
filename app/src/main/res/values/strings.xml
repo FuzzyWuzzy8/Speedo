@@ -6,7 +6,7 @@
     <string name="reset_max_speed">Reset max. speed</string>
     <string name="current_distance">Distance</string>
     <string name="reset_distance">Reset distance</string>
-    <string name="noOfSatellites">Number of Satellites</string>
+    <string name="noSatellites">Number of Satellites</string>
     <string name="play">Play!</string>
     <string name="kmh"> km/h</string>
     <string name="m"> m</string>

@@ -5,20 +5,15 @@ import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.location.LocationListener;
-import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.location.Location;
 import android.location.LocationManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import androidx.core.content.ContextCompat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewCurrentSpeed;
     private TextView textViewMaxSpeed;
     private TextView textViewCurrentDistance;
-    private TextView textViewNoOfSatellites;
+    private TextView textViewNoSatellites;
     private Button buttonResetDistance;
     private Button buttonResetSpeed;
     private int speed = -1;
@@ -48,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View blankView = new View(this);
+        View blankView = new View(this);  //leave for later
         setContentView(R.layout.activity_main);
 
         // Initialize TextView and Button objects here
@@ -56,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         textViewCurrentSpeed = findViewById(R.id.textCurrent_speed);
         textViewMaxSpeed = findViewById(R.id.textMax_speed);
         textViewCurrentDistance = findViewById(R.id.textDistance);
-        // textViewNoOfSatellites = findViewById(R.id.textNoOfSatellites);
+        textViewNoSatellites = findViewById(R.id.textNoSatellites);
         buttonResetDistance = findViewById(R.id.reset_distance_button);
         buttonResetSpeed = findViewById(R.id.reset_max_speed_button);
 
@@ -175,9 +170,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void setSatellitesAndDisplayTheirNumber(int satellites) {
         this.satellites = satellites;
-        if (textViewNoOfSatellites != null) {
-            textViewNoOfSatellites.setText(
-                    getString(R.string.noOfSatellites) + ": " + this.satellites);
+        if (textViewNoSatellites != null) {
+            textViewNoSatellites.setText(
+                    getString(R.string.noSatellites) + ": " + this.satellites);
         }
     }
     // other methods

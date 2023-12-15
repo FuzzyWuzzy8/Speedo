@@ -66,6 +66,16 @@
         android:layout_marginTop="16dp"
         android:text="@string/reset_distance" />
 
+    <!-- TextView for Satellites -->
+    <TextView
+        android:id="@+id/textNoSatellites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/reset_distance_button"
+        android:layout_marginTop="16dp"
+        android:text="@string/noSatellites" />
+
     <!-- Other buttons and elements -->
 
 </RelativeLayout>
