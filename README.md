@@ -44,7 +44,7 @@ The app uses Android's LocationManager and LocationListener to receive updates o
 ## Installation
 1. Clone the repository.
    ```bash
-   git clone https://github.com/your-username/your-repository.git
+   git clone https://github.com/FuzzyWuzzy8/Speedo.git
    
 1. Open the project in Android Studio.
 2. Build and run the application on an emulator or Android device.
