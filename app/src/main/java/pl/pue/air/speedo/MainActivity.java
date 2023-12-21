@@ -4,6 +4,11 @@ import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.location.LocationListener;
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -14,6 +19,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -191,5 +198,66 @@ public class MainActivity extends AppCompatActivity {
         if (textViewMaxSpeed != null) {
             textViewMaxSpeed.setText(getString(R.string.max_speed) + ": - " + getString(R.string.kmh));
         }
+    }
+
+    private void showChangeLanguageDialog() {
+        final String[] listItems = {"English", "Polish", "French", "German", "Spanish"};
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+        mBuilder.setTitle("Choose language");
+        mBuilder.setSingleChoiceItems(listItems, -1, new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i){
+                switch (i){
+                    case 0:
+                        // English
+                        setLocale("en");
+                        recreate();
+                        break;
+                    case 1:
+                        // Polish
+                        setLocale("pl");
+                        recreate();
+                        break;
+                    case 2:
+                        // French
+                        setLocale("fr");
+                        recreate();
+                        break;
+                    case 3:
+                        // German
+                        setLocale("de");
+                        recreate();
+                        break;
+                    case 4:
+                        // Spanish
+                        setLocale("es");
+                        recreate();
+                        break;
+                }
+                dialogInterface.dismiss();   //dismiss alert dialog when language is selected
+            }
+        });
+        AlertDialog mDialog = mBuilder.create();
+        mDialog.show();                     //show alert dialog
+    }
+
+    private void setLocale(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
+        //save data to preferences
+        SharedPreferences.Editor editor = getSharedPreferences("Settings", MODE_PRIVATE).edit();
+        editor.putString("My_Lang", lang);
+        editor.apply();
+    }
+
+    //load language from shared preference
+    public void loadLocale(){
+        SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
+        String language = prefs.getString("My_Lang", "");
+        setLocale(language);
     }
 }
