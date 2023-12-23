@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -147,11 +148,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+/*
     // Check if the ACCESS_FINE_LOCATION permission is granted
     private boolean checkLocationPermission() {
         return ContextCompat.checkSelfPermission(
                 this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+    }
+*/
+    private boolean checkLocationPermission() {
+        int cameraPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+        return cameraPermission == PackageManager.PERMISSION_GRANTED;
     }
 
     // Request the ACCESS_FINE_LOCATION permission
@@ -275,7 +281,7 @@ public class MainActivity extends AppCompatActivity {
                     getString(R.string.noSatellites) + ": " + this.satellites);
         }
     }
-    // other methods
+    // Other methods
 
     // Method to reset distance
     private void resetDistance() {

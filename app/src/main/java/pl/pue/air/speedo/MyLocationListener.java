@@ -36,6 +36,13 @@ public class MyLocationListener implements LocationListener {
                                 mainActivity.data_points][0],
                         mainActivity.positions[(mainActivity.counter + (mainActivity.data_points - 1)) %
                                 mainActivity.data_points][1]);
+
+                // Check if the calculated distance is NaN or infinite
+                if (Double.isNaN(d1) || Double.isInfinite(d1)) {
+                    // Handle invalid distance, log an error, or set a default value
+                    d1 = 0.0;
+                }
+
                 t1 = mainActivity.times[mainActivity.counter] -
                         mainActivity.times[(mainActivity.counter + (mainActivity.data_points - 1)) %
                                 mainActivity.data_points];
@@ -144,6 +151,12 @@ public class MyLocationListener implements LocationListener {
         dist = rad2deg(dist);
         dist = dist * 60;
         dist = dist * 1852;
+
+        // Handle cases where the result might be NaN or infinite
+        if (Double.isNaN(dist) || Double.isInfinite(dist)) {
+            return 0.0; // Add another way to handle it
+        }
+
         return (dist);
     }
 
