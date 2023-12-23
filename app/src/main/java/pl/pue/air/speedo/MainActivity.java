@@ -2,8 +2,11 @@ package pl.pue.air.speedo;
 
 import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -47,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
     private float maxSpeed = -1.0F;
     private double distance = 0.0;
     private int satellites = 0;
+
+    // location permission
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 123;
+    private static final String LOG = "MainActivity";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
         //locale language
         loadLocale();
-/*
+
         //change actionbar title
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -111,11 +120,11 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Log.e("MainActivity", "ActionBar is null");
         }
-*/
+/*
         //change actionbar title
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(getResources().getString(R.string.app_name));
-
+*/
         //language
         TextView changeLang = findViewById(R.id.language);
         changeLang.setOnClickListener(new View.OnClickListener() {
@@ -127,7 +136,64 @@ public class MainActivity extends AppCompatActivity {
         //
 
 
+        // Check and request location permission
+        if (checkLocationPermission()) {
+            // Permission granted, initialize location listener
+            initLocationListener();
+        } else {
+            // Permission not granted, request it
+            requestLocationPermission();
+        }
+
+
     }
+
+    // Check if the ACCESS_FINE_LOCATION permission is granted
+    private boolean checkLocationPermission() {
+        return ContextCompat.checkSelfPermission(
+                this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    // Request the ACCESS_FINE_LOCATION permission
+    private void requestLocationPermission() {
+        ActivityCompat.requestPermissions(
+                this,
+                new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                LOCATION_PERMISSION_REQUEST_CODE);
+    }
+
+    // Initialize location listener
+    private void initLocationListener() {
+        lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationListener = new MyLocationListener(this);
+
+        lm.removeUpdates(locationListener);
+
+        try {
+            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+        } catch (SecurityException e) {
+            Log.e(String.valueOf(LOG), getString(R.string.accessRightsNOTgranted));
+        }
+    }
+
+    /*
+    // Handle the result of the permission request
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, initialize location listener
+                initLocationListener();
+            } else {
+                // Permission denied, handle accordingly (show a message, disable features, etc.)
+                Log.e(LOG, getString(R.string.accessRightsNOTgranted));
+                // You might want to show a message or disable location-related features here.
+            }
+        }
+    }
+
+     */
 
 
 
