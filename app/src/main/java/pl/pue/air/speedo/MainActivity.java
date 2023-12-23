@@ -106,8 +106,16 @@ public class MainActivity extends AppCompatActivity {
 
         //change actionbar title
         ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle(getResources().getString(R.string.app_name));
+        } else {
+            Log.e("MainActivity", "ActionBar is null");
+        }
+/*
+        //change actionbar title
+        ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(getResources().getString(R.string.app_name));
-
+*/
         //language
         TextView changeLang = findViewById(R.id.language);
         changeLang.setOnClickListener(new View.OnClickListener() {
