@@ -76,6 +76,16 @@
         android:layout_marginTop="16dp"
         android:text="@string/noSatellites" />
 
+    <!-- Button to change language -->
+    <Button
+        android:id="@+id/language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textNoSatellites"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="320dp"
+        android:text="@string/language" />
+
     <!-- Other buttons and elements -->
 
 </RelativeLayout>

@@ -15,7 +15,7 @@ public class MyLocationListener implements LocationListener {
     private static final int UPDATE_DISTANCE_THRESHOLD = 5;
 
     //old method
-    /*
+  //  /*
     @Override
     public void onLocationChanged(Location loc) {
 
@@ -61,10 +61,11 @@ public class MyLocationListener implements LocationListener {
         }
 
     }
-    */
+   // */
 
     //new method
     //additional tests needed
+    /*
     @Override
     public void onLocationChanged(Location loc) {
         Double distance = 0.0;
@@ -116,6 +117,7 @@ public class MyLocationListener implements LocationListener {
             mainActivity.setAndDisplayCurrentSpeed(-1.0);
         }
     }
+    */
 
 
     @Override

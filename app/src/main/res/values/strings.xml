@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Speedo</string>
+    <string name="app_name" translatable="false">Speedo</string>
     <string name="onDataInit">Data Initialized</string>
     <string name="current_speed">Current Speed</string>
     <string name="max_speed">Max. speed</string>
@@ -12,5 +12,6 @@
     <string name="m"> m</string>
     <string name="accessRightsGranted">Access Rights Granted</string>
     <string name="accessRightsNOTgranted">Access Rights NOT Granted</string>
+    <string name="language">Language</string>
 
 </resources>

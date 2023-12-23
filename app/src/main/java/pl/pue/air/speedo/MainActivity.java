@@ -2,6 +2,7 @@ package pl.pue.air.speedo;
 
 import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -98,6 +99,24 @@ public class MainActivity extends AppCompatActivity {
         } catch (SecurityException e) {
             Log.e(String.valueOf(LOG), getString(R.string.accessRightsNOTgranted));  // Log.e(LOG, getString(R.string.accessRightsNOTgranted));
         }
+
+
+        //locale language
+        loadLocale();
+
+        //change actionbar title
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(getResources().getString(R.string.app_name));
+
+        //language
+        TextView changeLang = findViewById(R.id.language);
+        changeLang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showChangeLanguageDialog();
+            }
+        });
+        //
 
 
     }
