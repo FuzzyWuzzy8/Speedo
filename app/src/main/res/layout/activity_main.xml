@@ -83,8 +83,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textNoSatellites"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="320dp"
-        android:text="@string/language" />
+        android:layout_marginTop="300dp"
+        android:text="@string/language"
+        android:background="@drawable/button1"/>
 
     <!-- Other buttons and elements -->
 
