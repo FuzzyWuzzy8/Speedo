@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Speedo</string>
     <string name="onDataInit">Dane zainicjowane</string>
+    <string name="current_speed">Current Speed</string>
 </resources>

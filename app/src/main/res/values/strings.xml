@@ -8,8 +8,8 @@
     <string name="reset_distance">Reset distance</string>
     <string name="noSatellites">Number of Satellites</string>
     <string name="play">Play!</string>
-    <string name="kmh"> km/h</string>
-    <string name="m"> m</string>
+    <string name="kmh" translatable="false"> km/h</string>
+    <string name="m" translatable="false"> m</string>
     <string name="accessRightsGranted">Access Rights Granted</string>
     <string name="accessRightsNOTgranted">Access Rights NOT Granted</string>
     <string name="language">Language</string>
