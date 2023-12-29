@@ -1,8 +1,5 @@
 package pl.pue.air.speedo;
 
-import static android.webkit.ConsoleMessage.MessageLevel.LOG;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -107,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
         } catch (SecurityException e) {
-            Log.e(String.valueOf(LOG), getString(R.string.accessRightsNOTgranted));  // Log.e(LOG, getString(R.string.accessRightsNOTgranted));
+            Log.e(String.valueOf(LOG), getString(R.string.accessRightsNotGranted));  // Log.e(LOG, getString(R.string.accessRightsNOTgranted));
         }
 
 
@@ -178,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
         } catch (SecurityException e) {
-            Log.e(String.valueOf(LOG), getString(R.string.accessRightsNOTgranted));
+            Log.e(String.valueOf(LOG), getString(R.string.accessRightsNotGranted));
         }
     }
 
@@ -193,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
                 initLocationListener();
             } else {
                 // Permission denied, handle accordingly (show a message, disable features, etc.)
-                Log.e(LOG, getString(R.string.accessRightsNOTgranted));
+                Log.e(LOG, getString(R.string.accessRightsNotGranted));
                 // You might want to show a message or disable location-related features here.
             }
         }
@@ -219,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
             if (checkSelfPermission(permissions[p]) == PackageManager.PERMISSION_GRANTED) {
                 Log.d(String.valueOf(LOG), getString(R.string.accessRightsGranted) + ": " + p);    //Log.d(LOG, getString(R.string.accessRightsGranted) + ": " + p);
             } else {
-                Log.e(String.valueOf(LOG), getString(R.string.accessRightsNOTgranted) + ": " + p);  //Log.e(LOG, getString(R.string.accessRightsNOTgranted) + ": " + p);
+                Log.e(String.valueOf(LOG), getString(R.string.accessRightsNotGranted) + ": " + p);  //Log.e(LOG, getString(R.string.accessRightsNOTgranted) + ": " + p);
             }
         }
     }

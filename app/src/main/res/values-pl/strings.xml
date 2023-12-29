@@ -2,5 +2,13 @@
 <resources>
     <string name="app_name">Speedo</string>
     <string name="onDataInit">Dane zainicjowane</string>
-    <string name="current_speed">Current Speed</string>
+    <string name="current_speed">Obecna prędkość</string>
+    <string name="reset_max_speed">Zresetuj maks. prędkość</string>
+    <string name="max_speed">Maks. prędkość</string>
+    <string name="current_distance">Dystans</string>
+    <string name="reset_distance">Zresetuj odległość</string>
+    <string name="noSatellites">Liczba satelitów</string>
+    <string name="accessRightsGranted">Przyznane prawa dostępu</string>
+    <string name="accessRightsNotGranted">Nie przyznano praw dostępu</string>
+    <string name="language">Język</string>
 </resources>

@@ -10,8 +10,8 @@
     <string name="play">Play!</string>
     <string name="kmh" translatable="false"> km/h</string>
     <string name="m" translatable="false"> m</string>
-    <string name="accessRightsGranted">Access Rights Granted</string>
-    <string name="accessRightsNOTgranted">Access Rights NOT Granted</string>
+    <string name="accessRightsGranted">Access rights granted</string>
+    <string name="accessRightsNotGranted">Access rights not granted</string>
     <string name="language">Language</string>
 
 </resources>

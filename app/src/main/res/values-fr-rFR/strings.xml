@@ -9,6 +9,6 @@
     <string name="reset_distance">Réinitialiser la distance</string>
     <string name="noSatellites">Nombre de satellites</string>
     <string name="accessRightsGranted">Droits d\'accès accordés</string>
-    <string name="accessRightsNOTgranted">Droits d\'accès NON accordés</string>
+    <string name="accessRightsNotGranted">Droits d\'accès non accordés</string>
     <string name="language">Langue</string>
 </resources>
