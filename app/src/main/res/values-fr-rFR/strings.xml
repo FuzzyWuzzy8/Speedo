@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Speedo</string>
+    <string name="current_speed">Vitesse actuelle</string>
+    <string name="onDataInit">Données initialisées</string>
+    <string name="reset_max_speed">Réinitialiser max. vitesse</string>
+    <string name="max_speed">Max. vitesse</string>
+    <string name="current_distance">Nombre de satellites</string>
+    <string name="reset_distance">Réinitialiser la distance</string>
+    <string name="noSatellites">Nombre de satellites</string>
+    <string name="accessRightsGranted">Droits d\'accès accordés</string>
+    <string name="accessRightsNOTgranted">Droits d\'accès NON accordés</string>
+    <string name="language">Langue</string>
 </resources>
