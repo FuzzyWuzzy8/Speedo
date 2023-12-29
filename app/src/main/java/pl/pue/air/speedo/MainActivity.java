@@ -332,7 +332,18 @@ public class MainActivity extends AppCompatActivity {
                         setLocale("es");
                         recreate();
                         break;
+                    case 5:
+                        // Turkish
+                        setLocale("tr");
+                        recreate();
+                        break;
+                    case 6:
+                        // Russian
+                        setLocale("ru");
+                        recreate();
+                        break;
                 }
+
                 dialogInterface.dismiss();   //dismiss alert dialog when language is selected
             }
         });
