@@ -4,6 +4,8 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
 
+import java.text.DecimalFormat;
+
 public class MyLocationListener implements LocationListener {
 
     private MainActivity mainActivity;
@@ -151,6 +153,14 @@ public class MyLocationListener implements LocationListener {
         dist = rad2deg(dist);
         dist = dist * 60;
         dist = dist * 1852;
+
+        // Round the distance to two decimal places
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        try {
+            dist = Double.parseDouble(decimalFormat.format(dist));
+        } catch (NumberFormatException e) {
+            dist = 0.0; // Handle if parsing fails
+        }
 
         // Handle cases where the result might be NaN or infinite
         if (Double.isNaN(dist) || Double.isInfinite(dist)) {
