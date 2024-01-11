@@ -1,5 +1,7 @@
 package pl.pue.air.speedo;
 
+
+
 import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
@@ -17,7 +19,7 @@ public class MyLocationListener implements LocationListener {
     private static final int UPDATE_DISTANCE_THRESHOLD = 5;
 
     //old method
-  //  /*
+    /*
     @Override
     public void onLocationChanged(Location loc) {
 
@@ -70,11 +72,11 @@ public class MyLocationListener implements LocationListener {
         }
 
     }
-   // */
+*/
 
     //new method
     //additional tests needed
-    /*
+///*
     @Override
     public void onLocationChanged(Location loc) {
         Double distance = 0.0;
@@ -126,7 +128,7 @@ public class MyLocationListener implements LocationListener {
             mainActivity.setAndDisplayCurrentSpeed(-1.0);
         }
     }
-    */
+// */
 
 
     @Override
@@ -143,6 +145,7 @@ public class MyLocationListener implements LocationListener {
     public void onStatusChanged(String provider, int status, Bundle extras) {
         // Implementation of the location provider status change
     }
+
 
     private double distance(double lat1, double lon1, double lat2, double lon2) {
         double theta = lon1 - lon2;

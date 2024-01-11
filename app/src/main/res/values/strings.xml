@@ -7,7 +7,6 @@
     <string name="current_distance">Distance</string>
     <string name="reset_distance">Reset distance</string>
     <string name="noSatellites">Number of Satellites</string>
-    <string name="play">Play!</string>
     <string name="kmh" translatable="false"> km/h</string>
     <string name="m" translatable="false"> m</string>
     <string name="accessRightsGranted">Access rights granted</string>
