@@ -12,8 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="60dp"
         android:textSize="34sp"
+        android:textColor="@color/colorPrimary"
         android:text="@string/app_name" />
 
     <!-- TextView for current speed -->
@@ -23,8 +24,10 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/textSpeedo"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/colorPrimary"
         android:text="@string/current_speed" />
+
 
     <!-- TextView for maximum speed -->
     <TextView
@@ -34,16 +37,19 @@
         android:layout_below="@id/textCurrent_speed"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
+        android:textColor="@color/colorPrimary"
         android:text="@string/max_speed" />
 
     <!-- Button to reset maximum speed -->
     <Button
         android:id="@+id/reset_max_speed_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:layout_below="@id/textMax_speed"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
+        android:textColor="@color/colorPrimary"
+        android:background="@color/colorAccent"
         android:text="@string/reset_max_speed" />
 
     <!-- TextView for current distance -->
@@ -54,16 +60,19 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/reset_max_speed_button"
         android:layout_marginTop="16dp"
+        android:textColor="@color/colorPrimary"
         android:text="@string/current_distance" />
 
     <!-- Button to reset distance -->
     <Button
         android:id="@+id/reset_distance_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:layout_below="@id/textDistance"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
+        android:textColor="@color/colorPrimary"
+        android:background="@color/colorAccent"
         android:text="@string/reset_distance" />
 
     <!-- TextView for Satellites -->
@@ -74,18 +83,21 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/reset_distance_button"
         android:layout_marginTop="16dp"
+        android:textColor="@color/colorPrimary"
         android:text="@string/noSatellites" />
 
     <!-- Button to change language -->
     <Button
         android:id="@+id/language"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:layout_below="@id/textNoSatellites"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="220dp"
         android:text="@string/language"
-        android:background="@drawable/button1"/>
+        android:textColor="@color/colorPrimary"
+        android:background="@color/colorAccent"/>
+        <!--android:background="@drawable/button1"/> -->
 
     <!-- Other buttons and elements -->
 

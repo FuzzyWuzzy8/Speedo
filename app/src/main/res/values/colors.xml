@@ -12,4 +12,16 @@
     <color name="black_gray">#39130101</color>
     <color name="orange">#FF5722</color>
     <color name="yellow">#FFEB3B</color>
-</resources>
+
+    <color name="colorPrimary">#F1F5FF</color>
+    <color name="colorPrimaryDark">#100F1F</color>
+    <color name="colorAccent">#FF4F4F</color>
+    <color name="app_background_color">#100F1F</color>
+
+
+    <!--  <color name="light_black">#100F1F</color> -->
+
+
+
+
+ </resources>
