@@ -1,9 +1,10 @@
 package pl.pue.air.speedo;
 
-
-
+import android.location.GpsSatellite;
+import android.location.GpsStatus;
 import android.location.Location;
 import android.location.LocationListener;
+import android.os.Build;
 import android.os.Bundle;
 
 import java.text.DecimalFormat;
@@ -17,6 +18,25 @@ public class MyLocationListener implements LocationListener {
     }
 
     private static final int UPDATE_DISTANCE_THRESHOLD = 5;
+
+
+    private int getSatellitesCountFromLocation(Location location) {
+        // Check if the Location object has extras
+        Bundle extras = location.getExtras();
+        if (extras != null) {
+            // Get the satellite information from extras
+            if (extras.containsKey("satellites")) {
+                // For "satellites" key
+                return extras.getInt("satellites");
+            } else if (extras.containsKey("satelliteCount")) {
+                // For "satelliteCount" key
+                return extras.getInt("satelliteCount");
+            }
+        }
+
+        // If no satellite information is found, return 0 or handle accordingly
+        return 0;
+    }
 
     //old method
     /*
@@ -112,6 +132,10 @@ public class MyLocationListener implements LocationListener {
                 speed = d1 / t1; // m/s
             }
 
+            // Update the number of satellites
+            int satellitesCount = getSatellitesCountFromLocation(loc);
+            mainActivity.setSatellitesAndDisplayTheirNumber(satellitesCount);
+
             mainActivity.counter = (mainActivity.counter + 1) % mainActivity.data_points;
             // convert from m/s to km/h
             speed = speed * 3.6d;
@@ -129,6 +153,7 @@ public class MyLocationListener implements LocationListener {
         }
     }
 // */
+
 
 
     @Override

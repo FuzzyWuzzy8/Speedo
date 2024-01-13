@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
         android:textSize="34sp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorSecondary"
         android:text="@string/app_name" />
 
     <!-- TextView for current speed -->
@@ -25,7 +25,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/textSpeedo"
         android:layout_marginTop="50dp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorSecondary"
         android:text="@string/current_speed" />
 
 
@@ -37,7 +37,7 @@
         android:layout_below="@id/textCurrent_speed"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorSecondary"
         android:text="@string/max_speed" />
 
     <!-- Button to reset maximum speed -->
@@ -48,7 +48,7 @@
         android:layout_below="@id/textMax_speed"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorSecondary"
         android:background="@color/colorAccent"
         android:text="@string/reset_max_speed" />
 
@@ -60,7 +60,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/reset_max_speed_button"
         android:layout_marginTop="16dp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorSecondary"
         android:text="@string/current_distance" />
 
     <!-- Button to reset distance -->
@@ -71,7 +71,7 @@
         android:layout_below="@id/textDistance"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorSecondary"
         android:background="@color/colorAccent"
         android:text="@string/reset_distance" />
 
@@ -83,7 +83,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/reset_distance_button"
         android:layout_marginTop="16dp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorSecondary"
         android:text="@string/noSatellites" />
 
     <!-- Button to change language -->
@@ -95,7 +95,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="220dp"
         android:text="@string/language"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorSecondary"
         android:background="@color/colorAccent"/>
         <!--android:background="@drawable/button1"/> -->
 

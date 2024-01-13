@@ -13,7 +13,8 @@
     <color name="orange">#FF5722</color>
     <color name="yellow">#FFEB3B</color>
 
-    <color name="colorPrimary">#F1F5FF</color>
+    <color name="colorPrimary">#100F1F</color>
+    <color name="colorSecondary">#F1F5FF</color>
     <color name="colorPrimaryDark">#100F1F</color>
     <color name="colorAccent">#FF4F4F</color>
     <color name="app_background_color">#100F1F</color>

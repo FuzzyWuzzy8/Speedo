@@ -3,7 +3,7 @@
     <!--style name="Base.Theme.Speedo" parent="Theme.AppCompat.Light.DarkActionBar"-->
     <!--style name="Base.Theme.Speedo" parent="Theme.Material3.DayNight.NoActionBar"-->
     <!--style name="Base.Theme.Speedo" parent="Theme.MaterialComponents.DayNight.DarkActionBar"-->
-    <style name="Base.Theme.Speedo" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Base.Theme.Speedo" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
