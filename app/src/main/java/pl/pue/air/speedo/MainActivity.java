@@ -18,6 +18,7 @@ import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -111,18 +112,14 @@ public class MainActivity extends AppCompatActivity {
         //locale language
         loadLocale();
 
-        //change actionbar title
+        // Change actionbar title
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle(getResources().getString(R.string.app_name));
         } else {
             Log.e("MainActivity", "ActionBar is null");
         }
-/*
-        //change actionbar title
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(getResources().getString(R.string.app_name));
-*/
+
         //language
         TextView changeLang = findViewById(R.id.language);
         changeLang.setOnClickListener(new View.OnClickListener() {
@@ -132,7 +129,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //
-
 
         // Check and request location permission
         if (checkLocationPermission()) {
@@ -298,7 +294,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void showChangeLanguageDialog() {
         final String[] listItems = {"English", "Polish", "French", "German", "Spanish", "Turkish", "Russian"};
-        AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+        // Use ContextThemeWrapper to apply the custom style
+        ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(MainActivity.this, R.style.LanguageDialog);
+
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(contextThemeWrapper);
+       // AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
         mBuilder.setTitle("Choose language");
         mBuilder.setSingleChoiceItems(listItems, -1, new DialogInterface.OnClickListener(){
             @Override

@@ -12,6 +12,12 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
+    <style name="LanguageDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/colorSecondary</item>
+        <!-- Add more styling attributes as needed -->
+    </style>
+
     <style name="Theme.Speedo" parent="Base.Theme.Speedo" />
 </resources>
 
