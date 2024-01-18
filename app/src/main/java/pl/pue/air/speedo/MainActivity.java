@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -292,26 +293,46 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //
+    private void setLocaleAndTheme(String lang) {
+        // Set locale
+        setLocale(lang);
+
+        // Set theme based on language, fallback to default theme
+        int themeId = getResources().getIdentifier("AppTheme_" + lang, "style", getPackageName());
+        if (themeId == 0) {
+            themeId = R.style.Base_Theme_Speedo; // Default theme
+        }
+
+        setTheme(themeId);
+        recreate();
+    }
+
     private void showChangeLanguageDialog() {
         final String[] listItems = {"English", "Polish", "French", "German", "Spanish", "Turkish", "Russian"};
         // Use ContextThemeWrapper to apply the custom style
-        ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(MainActivity.this, R.style.LanguageDialog);
+        //ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(MainActivity.this, R.style.LanguageDialog);
+        //AlertDialog.Builder mBuilder = new AlertDialog.Builder(contextThemeWrapper, R.style.LanguageDialog);
 
-        AlertDialog.Builder mBuilder = new AlertDialog.Builder(contextThemeWrapper);
-       // AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this, R.style.LanguageDialog);
         mBuilder.setTitle("Choose language");
+
+        //Add custom theme later
+        //ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.custom_list_item, R.id.text1, listItems);
         mBuilder.setSingleChoiceItems(listItems, -1, new DialogInterface.OnClickListener(){
             @Override
             public void onClick(DialogInterface dialogInterface, int i){
                 switch (i){
                     case 0:
                         // English
+                        //setLocaleAndTheme("en");
                         setLocale("en");
                         recreate();
                         break;
                     case 1:
                         // Polish
-                        setLocale("pl");
+                        setLocaleAndTheme("pl");
+                        //setLocale("pl");
                         recreate();
                         break;
                     case 2:

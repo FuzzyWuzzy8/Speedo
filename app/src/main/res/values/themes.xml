@@ -9,14 +9,32 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/app_background_color</item>
+        <item name="android:textColor">@color/colorSecondary</item>
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
     <style name="LanguageDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:background">@color/colorAccent</item>
-        <item name="android:textColorPrimary">@color/colorSecondary</item>
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
+        <item name="android:textColorSecondary">@color/colorSecondary</item>
+        <item name="android:textColor">@color/colorSecondary</item>
+
         <!-- Add more styling attributes as needed -->
     </style>
+
+    <!-- Theme for English -->
+    <style name="Base.Theme.Speedo.en" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- No need to override text color, it will use the default -->
+    </style>
+
+    <!-- Theme for Polish -->parent="AppTheme">
+    <style name="Base.Theme.Speedo.pl" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/orange</item>
+        <item name="android:textColorSecondary">@color/orange</item>
+        <item name="android:textColor">@color/orange</item>
+    </style>
+
 
     <style name="Theme.Speedo" parent="Base.Theme.Speedo" />
 </resources>
