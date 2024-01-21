@@ -281,7 +281,7 @@ public class MainActivity extends AppCompatActivity {
     private void resetDistance() {
         distance = 0;
         if (textViewCurrentDistance != null) {
-            textViewCurrentDistance.setText(getString(R.string.current_distance) + ": 0 " + getString(R.string.m));
+            textViewCurrentDistance.setText(getString(R.string.current_distance) + ": 0.0 " + getString(R.string.m));
         }
     }
 

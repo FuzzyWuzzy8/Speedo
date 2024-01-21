@@ -144,6 +144,9 @@ public class MyLocationListener implements LocationListener {
 
             // Update distance only if it exceeds the threshold
             if (d1 >= UPDATE_DISTANCE_THRESHOLD) {
+                // Format the distance with exactly two digits after the decimal point
+                DecimalFormat decimalFormat = new DecimalFormat("#0.00");
+                distance = Double.parseDouble(decimalFormat.format(d1));
                 mainActivity.addAndDisplayCurrentDistance(d1);
                 // Reset distance after updating
                 distance = 0.0;
